@@ -14,7 +14,7 @@ A ComfyUI custom node that converts text descriptions into professional English 
 
 1. Clone to your ComfyUI custom_nodes directory:
 ```bash
-git clone https://github.com/your-repo/string-multiline-translator.git
+git clone https://github.com/eddyhhlure1Eddy/string-multiline-translator.git
 ```
 
 2. Install dependencies:
