@@ -24,68 +24,91 @@ pip install -r requirements.txt
 
 3. Restart ComfyUI
 
-## 节点说明
+## Quick Start
 
-### String (Multiline)
-- 基础的多行字符串输入节点
-- 输出：原始文本
+### 1. Basic Usage
+- Add **"MMAudio Description Generator"** node
+- Input your text description (Chinese/English)
+- Enter your OpenRouter API key
+- Get professional English audio descriptions
 
-### String (Multiline + Translator)
-- 支持谷歌翻译的多行字符串节点
-- 输入：
-  - `text`: 多行文本输入
-  - `source_language`: 源语言（支持自动检测）
-  - `target_language`: 目标语言
-  - `enable_translation`: 是否启用翻译
-- 输出：
-  - `original_text`: 原始文本
-  - `translated_text`: 翻译后的文本
-  - `detected_language`: 检测到的源语言
+### 2. WanVideo Integration
+- Connect **WanVideoTextEncode** → **WanVideo to MMAudio Bridge** → **MMAudio**
+- Automatic text extraction and conversion
+- Seamless workflow integration
 
-### String Concatenate (Translator)
-- 字符串连接节点，支持翻译连接后的结果
-- 输入：
-  - `string_a`: 第一个字符串
-  - `string_b`: 第二个字符串
-  - `delimiter`: 分隔符（默认换行）
-  - `translate_result`: 是否翻译结果
-  - `target_language`: 目标语言
-- 输出：
-  - `concatenated_text`: 连接后的文本
-  - `translated_text`: 翻译后的文本
+### 3. Preview & Testing
+- Use **"MMAudio Preview Generator"** for testing
+- Real-time preview of different audio modes
+- Perfect for workflow development
 
-### String Replace (Translator)
-- 字符串替换节点，支持翻译替换后的结果
-- 输入：
-  - `text`: 原始文本
-  - `find`: 要查找的字符串
-  - `replace`: 替换的字符串
-  - `translate_result`: 是否翻译结果
-  - `target_language`: 目标语言
-- 输出：
-  - `replaced_text`: 替换后的文本
-  - `translated_text`: 翻译后的文本
+## API Configuration
 
-## 支持的语言
+Get your OpenRouter API key from: https://openrouter.ai/
 
-支持50+种语言，包括：
-- 中文（简体/繁体）
-- 英语、日语、韩语
-- 法语、德语、西班牙语、俄语
-- 意大利语、葡萄牙语、阿拉伯语
-- 泰语、越南语、印地语等
+Enter the API key directly in the node interface - no configuration files needed!
 
-## 注意事项
+## Example Output
 
-1. 翻译功能需要网络连接
-2. 首次使用可能需要下载语言模型
-3. 如果翻译失败，会返回错误信息
-4. 建议在翻译大量文本时适当控制频率，避免被限制
+```
+Input: "东方女性穿着旗袍走在中式楼梯上，地板发出高跟鞋的声音"
+Output: "Elegant Chinese woman in qipao walking on traditional stairs, heels clicking softly on wooden floor"
+```
 
-## 作者
+## Node Types
 
-eddy
+### MMAudio Description Generator
+- **Input**: Multiline text (Chinese/English)
+- **Output**: Professional English audio description (5-15 words)
+- **Modes**: Audio description, background music, ambient effects, voice dubbing, special effects
 
-## 许可证
+### WanVideo to MMAudio Bridge
+- **Input**: WanVideoTextEncode embeddings
+- **Output**: MMAudio-compatible audio descriptions
+- **Purpose**: Seamless integration between WanVideo and MMAudio workflows
 
-MIT License
+### MMAudio Preview Generator
+- **Input**: Text for testing
+- **Output**: Real-time preview of audio descriptions
+- **Purpose**: Development and testing of audio descriptions
+
+### Audio Description Combiner
+- **Input**: Multiple audio elements
+- **Output**: Combined audio description
+- **Purpose**: Merge multiple audio sources
+
+### Audio Description Replacer
+- **Input**: Original text + replacement elements
+- **Output**: Updated audio description
+- **Purpose**: Modify existing audio descriptions
+
+## Requirements
+
+- ComfyUI
+- OpenRouter API key (get from https://openrouter.ai/)
+- requests library
+
+## Workflow Integration
+
+```
+Text Input → MMAudio Description Generator → MMAudio Node → Audio Output
+     ↓
+WanVideoTextEncode → WanVideo to MMAudio Bridge → MMAudio Node → Audio Output
+```
+
+## Supported Audio Modes
+
+- **音频描述** (Audio Description) - Complete scene description
+- **背景音乐** (Background Music) - Musical elements focus
+- **环境音效** (Ambient Effects) - Environmental sounds
+- **人声配音** (Voice Dubbing) - Human voice elements
+- **特殊音效** (Special Effects) - Unique sound effects
+- **成人内容** (Adult Content) - Mature content descriptions
+
+## Author
+
+Created by eddy
+
+## License
+
+Apache License 2.0
